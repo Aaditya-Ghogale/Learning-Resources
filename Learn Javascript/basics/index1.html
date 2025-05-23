@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- We can put the script tag anywhere in  the head or body -->
+<!-- But the best practice is to put it at the lower end of the document  -->
+<!-- As the browser parses a document from top to end so when it does it results in  bad user experience  -->
+<!-- If the script is a top as it wwould take time to parse -->
+<!-- And the below html elements will not be loaded  while browser will be  busy parsing-->
+<!-- And this will make the site look slow-----resultng in ba user exp -->
+
+
+<!-- Reason 2--- almost all time javascript is doing something by interacting with some eleement in the html  -->
+<!-- So if we put the script at the end of the document then the html elements will be loaded and ready to be interacted with -->
+ <!-- And we can make sure to display elemnts as reqd -->
+<!-- As sometimes we need to hide some elements -->
+ <!-- And be sure all elements are rendered  -->
+
+
+ <!--Exceptions are third party codes  -->
+<head>   
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<h1>Hello World</h1>
+<script>
+    // This is a comment-- we can write comments in javascript using // or /* */
+    //this is for desc and to explain why we written the code like why? and how?
+    console.log('Hello World');
+</script>
+<body>
+    
+</body>
+</html>
