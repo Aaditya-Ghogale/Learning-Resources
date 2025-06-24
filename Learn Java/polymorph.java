@@ -23,6 +23,12 @@ public class polymorph {
 
         return (int)((0.5)*(a+b)*h);
     }
+
+    //REFER THESE FOR EXPLAINATION FROM THE PROCESS FROM LINE 84
+    // public void PrintOverriddenMethod(){
+    //     System.out.println("Let us try to call the overridden method from the arent class"+area()); 
+    // }
+    
     /*
     this was a type of polymorphism 
     there are 2 types of polymorphism in java:
@@ -41,6 +47,10 @@ class Area extends polymorph{
     }
     // This method overrides the area method in the polymorph class.
 
+    public void PrintOverriddenMethod(){
+        System.out.println("Let us try to call the overridden method from the arent class"+ super.area()); 
+    }
+
     public static void main(String[] args) {
         Area area =new Area();
         System.out.println("Area of the rectangle is: " + area.area(5, 10)); // Rectangle area
@@ -54,6 +64,36 @@ class Area extends polymorph{
         // The method in the Area class overrides the one in the polymorph class, 
         // and is called even though the reference is of type polymorph.
 
+
+        area.PrintOverriddenMethod(); // Calling the overridden method from the parent class
+        // This will print the area of the shape as defined in the parent class polymorph.
+
+
+
+        /*
+         * Now during learning i tried to call the overridden parent class method from the child class
+         * 
+         * i did that by using the super keyword
+         * i tried to print using super.area() in the child class
+         * but it did not work as expected
+         * it did not work as the suprr keyword cannot be used in a static context
+         * 
+         * 
+         * 
+         * 
+         * after that  i declareed this method in parent class polymorph and 
+         * it still called the child class method
+         * this happened because the method is overridden in the child class
+         * overriding is a feature of runtime polymorphism
+         * so the method in the child class is called even though the reference is of type polymorph
+         * 
+         * 
+         * 
+         * Finally i pasted that meethod to the child class and it worked
+         * 
+         * DONE........
+         * A SMALL VIcTORY FOR ME FOR BEING CURIOUS AND TRYING TO UNDERSTAND THE CONCEPTS
+         */
     }
 }
 

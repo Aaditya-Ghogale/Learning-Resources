@@ -15,7 +15,6 @@ class var_type {
         float pi = 3.14f; // Float type
 
         System.out.println(age + " " + salary + " " + grade + " " + isEmployed + " " + smallNumber + " " + shortNumber + " " + largeNumber + " " + pi);
-        
         show(); // Call the function to show something
 
     }
