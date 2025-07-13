@@ -60,3 +60,60 @@ for (String n:name)
 }
 ```
 So above loop is a foreach loop that runs as  many times as the ArraySize and in each iteration the left hand sided variable is equated to the array indexes in an inceremental manner.
+
+
+Now there's one more thing we can also make Array for a class But before that I tried to make 2 classes and in one i just defined 3 variables and made constructor for both using the in-built IDE features.
+
+Goal was to use  class and make a object for other class and set its value during obj creation via constructor and then get that value back and print.
+
+But a prob occured it didn't print well what it printed was entirely different something ...random.......unexpected.....Refer below-
+
+
+*Check ArrayClass.java*
+
+![String sout unexpected output](./Images/Class%20Array.png)
+
+So I did some finding and here's the culprit
+
+So Every almost class in java by default extends to a class named **"Object"** by default and within it there is a function called Tostring which is what  responsible for *printing an object directly* resulting in such behaviour.
+
+So in above snippet when we try to print the object directly the result is as such
+
+See below-
+
+![Class Object- ToString Method](./Images/extends%20class%20Object.png)
+
+
+
+So here 
+```Java
+public String toString() {
+        return getClass().getName() + "@" + Integer.toHexString(hashCode());
+    }
+```
+
+**This is not what we want....Right?**
+
+
+So what can we do......
+We can use Methos Overriding and then  we can make a new ToString method that works as we want and then Every time this will be executed....
+
+![Overridden ToString Methos](./Images/extends%20class%20Object%20overridden.png)
+
+We can now move on and look into how arrays of class what we create are not Array of object but array of object references.
+
+```Java
+Classname  objarrayreferencename[]= new Classname[number of references];
+//these can be set later using
+objarrayreferencename[index number]= new Classname(value1,value2);
+//and so on;
+```
+
+refer ArrayCLass again asap.
+![Making a object references array](./Images/Making%20a%20class%20array.png)
+
+
+**Works as Intended.....**
+
+
+### Done----Please Revisit Occasionally...
