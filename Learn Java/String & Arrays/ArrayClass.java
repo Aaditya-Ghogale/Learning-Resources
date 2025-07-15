@@ -16,6 +16,8 @@ class ArrayClass{
     for(Student s2: sarray){
         System.out.println(s2);
     }}}
+
+    
 class Student extends Object {
     String name;
     int rollNo;

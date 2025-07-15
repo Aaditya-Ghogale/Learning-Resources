@@ -2,6 +2,14 @@
 
 ## Basic Programs 
 
+
+<details>
+<summary>Java Working & Data Storage Mechanism.md</summary>
+
+- This is a Readme that discusses all how java works and how it processes each step  till we get the final output  it also tells us how objects are a big part of java also how things happen on the memory end as objects are initiated as well as variables are made.
+</details>
+
+---
 <details>
 <summary>Demo.java</summary>
 
@@ -47,7 +55,7 @@
 <details>
 <summary>oops.java</summary>
 
--  This is a more theory 56 34563
+-  This is a more theory of OOPS and also looks into how Objects are created in Java and how they are used to access resources of another class from one class.
 </details>
 
 ---
@@ -69,5 +77,112 @@ java Main1
 
 ---
 
+<details>
+<summary>Construct.java</summary>
+
+- This Explores the working of the Constructors and how Getters & Setters help us make our code encapsulated.
+
+- Access using AdvancedConstruct class.
+
+```cmd
+java AdvancedConstruct
+```
+</details>
 
 
+---
+
+<details>
+<summary>polymorph.java</summary>
+
+- This one goes into polymorphism quite well it does method overloading as well as method overriding.
+- Also if we override a method of a parent class, by default child class method is  accessed  so i also did something that helped in accessing tthe parent class method in such a scenario.
+</details>
+
+
+## Strings
+
+<details>
+<summary>First.java</summary>
+
+-  In here i tried printing String.
+</details>
+
+---
+<details>
+<summary>String.md</summary>
+
+- For Strings i found it better to experiment on **jshell** better than coding for each also string is more on theory in this I looked into String class, StringBuffer Class, Their methods.
+
+- Later we could do some code on Strings
+
+</details>
+
+## Arrays
+
+<details>
+<summary>Arrays.java</summary>
+
+-  this is a basic code to accept String array elements and then print them out. I did it the usual way like it can only take one by one i/p not any advanced like u cannot write all i/p in one line .
+
+- Finally then it prints the array i/p one by one 
+</details>
+
+---
+<details>
+<summary>Arrays01.java</summary>
+
+-  In this i tried same but the fun thing is i learn here that var_name.split(".\\\s+") [Note:-in readme.md txt there are three slashes but as visible] can help us accept i/p in a single line and then put them in line it takes words seperated by a space as strings and it does this as it recoginzes them via the .\\\s character
+
+- Also if ur array size is fixed [say : 4] but the i/p is larger say of 10 words what it will not do is take just 4 words and ignore rest but instead it will fit 10 elements in the array .....i know it might be confusing but it is not.
+- *Refer the .java file in comments the clarificaion is done*
+</details>
+
+
+---
+<details>
+<summary>ArrayClass.java</summary>
+
+-  What i tried here is to use an array of a class.
+
+- what it does that it uses object creation to make a array of references to multiple objects and these can be treated as array of classes
+
+```Java
+Student sarray[]=new Student[3];
+     sarray[0]=new Student("Aaditya, SDE",1);
+     sarray[1]=new Student("Aaditya, devops",2);
+     sarray[2]=new Student("Aaditya, AI ML",3);
+//for full version refer the .java file
+```
+
+- Also in this only we made 2 classes for one I made var in them and initiated them using the constructor and a parameterized one at that. I then made another class and then passed values using a object of the previous class and then I tried to print the object But, this printed some garbage.
+
+- So I learnt why this happens [because of .toStrings() functions that is inbuilt in Object class] Also, that every class by default extends the Object class so when I print this specific methiod is called and that is the cause.
+
+- So i made a function with same name in this class and made it @Override  and in this function i wrote the way i expect it to behave.
+
+- Later as shown in above code snippet i tried how we can make a array of object  and then hoe i can give data to each object. In this code later i also printed this in which i knew that i can use for each to print even the object array.
+
+```Java
+ for(Student s2: sarray){
+    System.out.println(s2);
+ }
+
+ //Here s2 is some random new var that we generally do in foreach 
+ //sarray must be the name of object array
+ // Amazing thing is that Student(i.e. class name) can be used instead of data type in the foreach loop
+```
+</details>
+
+---
+<details>
+<summary>Arrays.md</summary>
+
+-  This is a file that has  theory part for Arrays in Java Context as well as it has details of things i faced in execution as well as learnings during that for above listed code.
+
+- May be updated later when i do more array related stuff or have more learnings in this context....
+</details>
+---
+
+
+## Bye.... ≧◡≦
