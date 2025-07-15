@@ -44,6 +44,8 @@
     public void setSpeed(int speed) {
         this.speed = speed;
     }
+    //Here the this keyword is used to refer to the instance variable speed of the class.
+    //It sets the global speed variable to the value passed as a parameter to the setter method.
 
     public String getColor() {
         return color;
@@ -81,7 +83,7 @@ class sportscar extends car{
         System.out.println("The "+ customcolor +" sports car is going at a super speed of "+ (getSpeed() +150) + " km/h");
       
     }
-    //as we can see we have bimplemented the getters in the above method to access the instance variables of the car class.
+    //as we can see we have implemented the getters in the above method to access the instance variables of the car class.
     // This method uses the inherited getSpeed() and getColor() methods to access the properties of the car class.
     // This is an example of inheritance, where the sportscar class inherits properties and methods from the car class.
     //this is a example of encapsulation, where we are using getters to access the private instance variables of the car class.

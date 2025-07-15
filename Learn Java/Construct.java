@@ -101,7 +101,7 @@ class AdvancedConstruct extends Construct {
 
 
         Construct obj = new Construct();
-        // The Fiirst Construct keyword is the class name,
+        // The First Construct keyword is the class name,
         // then the obj is a reference variable that points to the object created by the constructor.
         //new keyword is used to create a new object of the Construct class.
         //Construct() is the constructor that initializes the object.it is used to call the constructor of the Construct class.
