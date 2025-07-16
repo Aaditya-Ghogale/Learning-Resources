@@ -125,7 +125,10 @@ java AdvancedConstruct
 
 -  this is a basic code to accept String array elements and then print them out. I did it the usual way like it can only take one by one i/p not any advanced like u cannot write all i/p in one line .
 
-- Finally then it prints the array i/p one by one 
+- Finally then it prints the array i/p one by one.
+
+- Above thimngs were done earlier but were later commented out
+- I has a flash of inspiration and thought that what if we could take a integer input and then use that to create the string array object and the result is..........It is possible.
 </details>
 
 ---
