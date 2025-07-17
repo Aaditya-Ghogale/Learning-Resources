@@ -21,7 +21,7 @@
 // }
 // }
 
-
+//I am trying to  take i/p and use that to make a String array and then print the names entered by the user.
 import java.util.*;
 class Arrays {
     public static void main(String[] args) {
