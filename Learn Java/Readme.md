@@ -187,5 +187,10 @@ Student sarray[]=new Student[3];
 </details>
 ---
 
+<details>
+<summary> References
+</summary>
+Telusko a.k.a. Navin Reddy
+</details>
 
 ## Bye.... ≧◡≦
