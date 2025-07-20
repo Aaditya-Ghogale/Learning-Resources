@@ -27,4 +27,24 @@ For a let me make that into  a package .First, Lets make A into a package. It ca
 ```Java
 package com.learn.java.packages
 //this includes the A.java file into a package with structure that is given above like com\learn\java\packages\
- 
+class A {
+
+} 
+```
+
+what that does is include the the said class into the package. But this will likely lead to error if the package is new and is now created here or if the file is creared somewhere else   
+In such a scenario we can use IDE tools to fix this like below   
+  ![Putting class in package](./Images/Include%20class%20in%20packages.png)
+
+Now let me put B.java into another sub-directory in same package like here i put it in **com\learn\java\db** instead this shows how we can cluster files with  similar purpose together.  
+This can make the package more usable if provided as a external dependency as well as makes the package well structured.  
+As for the remaining C file just put in same directory as A.java.
+
+  ![Package Structure](./Images/Package%20Structure.png)
+
+Before moving on let me clear something on say you declare package like a.b.c.d; then the folder just above a in the hierarchy is **set as the root folder**  
+This so called setting of root folder is not for namesake but has a significance...  
+  
+
+Now that we have looked into how to 
+
