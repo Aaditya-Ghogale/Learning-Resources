@@ -2,8 +2,6 @@ import com.learn.java.packages.*;
 import com.learn.java.db.B;
 class Demo {
 public static void main(String[] args) {
-     C c = new C();
-    
     A a = new A();
     a.show();
     B b = new B();

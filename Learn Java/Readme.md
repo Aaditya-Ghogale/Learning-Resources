@@ -190,7 +190,15 @@ Student sarray[]=new Student[3];
 <details>
 <summary> References
 </summary>
-Telusko a.k.a. Navin Reddy
+Telusko a.k.a. Navin Reddy  
+
+[Udemy Course](www.udemy.com/course/java-for-programmers-crash-course/)
+
+Coding with John for Abstract classes, methods, Interfaces.  
+*God He's a Saviour I banged my head on Abstract part for hours but just 7 fucking minutes of his vids did the job for me I felt like an Idiot* 
+### **o(╥﹏╥)o**  
+
+[Youtube](https://youtu.be/HvPlEJ3LHgE?si=GvDJBkQeRvYUjPHa)
 </details>
 
 ## Bye.... ≧◡≦
