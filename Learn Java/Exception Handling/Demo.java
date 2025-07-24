@@ -11,7 +11,7 @@ class Demo{
         try{
         result =a/b;    
         }
-        catch(ArithmeticException e){
+        catch(Exception e){
             System.out.println("No division by zero....");
             System.out.println("Hamare yaha aisa hi hota hai...Samjhe?");
         }
