@@ -1,6 +1,8 @@
 # Exception Handling.
 
 ## Errors in Coding.
+Any Event that interrupts the process of a program when either compiling or running can be classified as Error.
+
 So when coding we make programs and these are then compiled by the JVM or its counterparts in other languages.  
 
 The compiled files are then ran and this is also done by JVM.  
