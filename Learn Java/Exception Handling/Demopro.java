@@ -10,7 +10,7 @@ class Demopro{
         System.out.println("Array me se konsa index chahiye??");
         c=adi.nextInt();
         int arr[]={1,2,3,4,5};
-
+        adi.close();
         try{
         result =a/b;    
         System.out.println(arr[c]);
@@ -25,9 +25,6 @@ class Demopro{
         }
         catch(ArrayIndexOutOfBoundsException e){
             System.out.println("Hamare wale array ke size isse kam hai.....index 0-4 me se daalo.");
-        }
-
-        
-        
+        } 
     }
 }

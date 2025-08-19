@@ -17,6 +17,6 @@ class Demo{
         }
 
         System.out.println("Iss sawal ka uttar hai : "+ result);
-        
+        adi.close();
     }
 }
