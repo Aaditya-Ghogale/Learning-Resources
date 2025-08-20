@@ -6,6 +6,7 @@ class Collec1{
         nums.add(5);
         nums.add(59);
         nums.add(5500);
+        nums.add("aaditya");
 
         System.out.println(nums);
     }
