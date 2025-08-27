@@ -1,0 +1,20 @@
+# Auto Commit Each File Individually (PowerShell)
+
+By default, `git commit` groups all modified files into a single commit.  
+If you want **each file change to be committed separately**, including **new/untracked files**, you can use the following PowerShell script:
+
+```powershell
+# Commit all untracked (new) files one by one
+foreach ($file in git ls-files -o --exclude-standard) {
+    git add $file
+    git commit -m "Add $file"
+}
+
+# Commit all modified (tracked) files one by one
+foreach ($file in git ls-files -m) {
+    git add $file
+    git commit -m "Update $file"
+}
+
+# Push everything to GitHub
+git push origin main
