@@ -144,12 +144,47 @@ output:
  
 ## Data Types in JavaScript.  
 
+Firstly we have the 5 basic primitive data types.  
+  
 - string - anything surrounded by "" or `` or '' a.k.a. (single, double) quotes or backticks.
 - boolean - Simple `true` or `false`
 - number - all numbers whether integers or decimals,  negative or positive.
-- undefined - only type that is also the value itself. used when you have noy set the value for something `yet` but will set something later on.
+- undefined - only type that is also  the value itself. used when you have noy set the value for something `yet` but will set something later on.
 - null- Used when you want to set some value of someting as nothing `explicitly.` Used to find if anything is empty or non-existant.  
 - We also have somethings like BigInt that store integers that cannot be stored in integers we also have symbol that will not be used much in this stage.  
+
   
-   
+## Variables in JavaScript.  
+
+So for the variable side we have mainly 3 ways to declare a variable.  
+Mainly `var`, `let` & `const`  
+
+- `Var`- Var lets us declare and define variables directly like in other languages and we can let js identify the type. we can also change the value of the value of a var later on and it is perfectly fine.    
+Also a thing to remember is that var is a function- scoped and is hoisted and we will talk about this later on as this is a sort of advanced concept as of now.     
+e.g.
+```js
+var v = "Hello world"  
+```  
   
+- `let` - let works similar  to var and  an be declared like any other language and  can also be changed. but it has its differences at deeper level.       
+there are differences at deeper level we can cover taht later.  
+e.g.
+```js
+let v = "Hello world"  
+```  
+
+- `const` - well const is different the const here means constant meaning that variable declared here are  **constant** and cannot be changed even if they are re-declared it will show error.       
+Well what is interesting is that  if you declare a array with const you can mutate it but what you cannot do is you cannot re-assign it a new array.  
+e.g.
+```js
+const v = "Hello world"  
+```     
+
+
+## Block vs Function Scoped.  
+
+Now as I am not going for basics and assuming all of us know programming words.  
+Then letsss gooooo.........   
+Well, `let` and `const` are both block scoped meaning that they can only be accessed in the blocks they are defined......*ahem....cough....local....variable......cough...*  
+
+while 
