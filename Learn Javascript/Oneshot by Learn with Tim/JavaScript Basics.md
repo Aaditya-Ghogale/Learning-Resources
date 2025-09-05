@@ -186,5 +186,73 @@ const v = "Hello world"
 Now as I am not going for basics and assuming all of us know programming words.  
 Then letsss gooooo.........   
 Well, `let` and `const` are both block scoped meaning that they can only be accessed in the blocks they are defined......*ahem....cough....local....variable......cough...*  
+  
 
-while 
+Consider this :  
+```js
+if{
+console.log(x)
+}
+let x= 3
+
+```
+In above described situation niether const nor let can be used and above script will throw error because as stated `let` & `const` are block scoped meaining that they are accessible only within the block that they are defined.  
+Also they cannot be accessed before they are declared meaning if you do some operation involving it and later declare it taht won't work.  
+
+
+While `var` is function scoped meaning that it is accessible within the function that it was defined & if it wasn't defined within a function it is accessible im the `entire program`  
+  
+So here the magic also happens because of something called `Hoisting.`  
+  
+Well that is a topic to be studied in detail but to give a brief   
+basically when you declare something using var it gets hoisted meaning made availabe at the top of the function and thus is availabe throughout teh function and can be used. 
+
+So basically see below snippet.  
+![hoist behaviour](./Images/Hoisting%20behavior.png)
+
+so basically see below for the same code i made some changes and then i ran ;  
+For the 1st  cod ei declared console 1st and then declared var   
+in this case irrespective of where teh function is called the o/p was `undefined`  
+as js when it runs into a unintiated variable it assigns it as undefined then wheen it later reaches initialization it replaces the value.  
+so here console just looks up and takes the current val as itt is and tehe compiler doesn't reach the var initializaion.   
+  
+In second time the var is placed above console here the `undefined ` is replaced by 10 so o/p is 10.  
+  
+In third time i just didnt declare var so here error came.  
+
+In 1st and 3rd case both let & const would give reference error/
+
+`In summary just know that let & const are block scoped and var is function scoped`
+  
+##  Arithmetic Operations & Type Coercions.  
+ 
+
+ Well the Arithmetic Operations Here are similar to other programming languages i know,  
+ well lets see :  
+ `Arithmetic Operators.`
+ - `+` is add. 
+ - `-` is substract.
+ - `/` is divide.
+ - `%` is modulo.  
+ - `*` is multiply.  
+ - `**` is exponential.
+   
+`Unary Operators.`  
+ - `--` is decrement.  
+ - `++` is increment.
+  
+ `Assignment & Arithmetic Combo`  
+ - `+=` add rhs to lhs & update lhs.   
+ - `-=` substract rhs from lhs & update lhs.  
+ - `*=` multiply rhs & lhs & update lhs.  
+ - `/=` divide lhs by rhs & update it.  
+   
+### Type Coercion.  
+Well by type coercion what we really mean that whenever we do arithmetic operation b/w 2 incompatible types in js it just converts one to other.  
+I will attach only one snip for understanding other i will just write it out pls crosscheck if in doubt.  
+  
+say what we adding are vars but to keep simple i will just write directly.  
+`2+4` will give `6`.  
+`7+"Eleven"` will give `7Eleven`   
+In above the 7 got converted to string.  
+`2 + True` & `2 + False` will result in `3` & `2` respectively as True & False are Boolean expressions & contain value 1 & 0 respectively.  
