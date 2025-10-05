@@ -6,4 +6,5 @@ const prompt = require("prompt-sync")()
 
 const v=prompt("type something here....")// takes input and stores it in v
 
-console.log(v)//prints the value stored in v
+console.log(v)//prints the value stored in v    
+
