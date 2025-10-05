@@ -255,4 +255,8 @@ say what we adding are vars but to keep simple i will just write directly.
 `2+4` will give `6`.  
 `7+"Eleven"` will give `7Eleven`   
 In above the 7 got converted to string.  
-`2 + True` & `2 + False` will result in `3` & `2` respectively as True & False are Boolean expressions & contain value 1 & 0 respectively.  
+`2 + True` & `2 + False` will result in `3` & `2` respectively as True & False are Boolean expressions & contain value 1 & 0 respectively .  
+
+
+
+  
