@@ -11,7 +11,7 @@ So now onto next,
 Javascript can be included into HTMl in the HTML5 and we can use inline-Javascript and make javascript code inside the HTML code itself it can be done by:  
 ```html
   <script>
-    console.log("Hello Duniya......I am a noob in code..............Help.....................")
+    console.log("Hello Duniya...How are you??")
   </script> 
 ``` 
 
@@ -45,9 +45,9 @@ well for the below statements performance differs both in node as well as browse
  for these:  
  ```html  
    <script>
-    console.log("Hello Duniya......I am a noob in code..............Help.....................")
+    console.log("Hello Duniya....How are you?")
     console.error("I feel that CS is getting harder.")
-    console.warn("What is ai gonna do?")
+    console.warn("LLM Over-reliance is bad.......")
     alert("Lets try we dont have any way out any way.")
   </script>  
 ```
@@ -72,7 +72,6 @@ This clearly illustrates how node and browser react ddifferently to js node beha
 
 
 ## Variables and Strings in I/O  
-
 
 ### Adding Variables and Attributes to Outputs.  
 
@@ -160,25 +159,72 @@ So for the variable side we have mainly 3 ways to declare a variable.
 Mainly `var`, `let` & `const`  
 
 - `Var`- Var lets us declare and define variables directly like in other languages and we can let js identify the type. we can also change the value of the value of a var later on and it is perfectly fine.    
-Also a thing to remember is that var is a function- scoped and is hoisted and we will talk about this later on as this is a sort of advanced concept as of now.     
+Also a thing to remember is that var is a function- scoped and is hoisted. 
+So, in all
+1. If you declare the var inside a function then that is accessible anywhere within that function. 
 e.g.
 ```js
-var v = "Hello world"  
-```  
-  
+function a() {
+console.log(v);
+if (true){
+    var v = "Hello world";  
+}
+console.log(v);
+}
+a(); 
+``` 
+```cmd
+undefined
+Hello world
+
+=== Code Execution Successful ===
+```
+**Why??**  
+Well, let me explain. when we declare a variable using **var** in a function the js compiler treats it like this 
+```js
+function a() {
+var v;
+console.log(v);
+if (true){
+   v = "Hello world";  
+}
+console.log(v);
+}
+a(); 
+``` 
+meaning that all var variables are declared at top. that is the reason the first console prints *undefined* cause at that moment the variable is **just declared but not defined** while later in the code the compiler finds the assigned value thus next console prints **"Hello world"**  
+
+This code is insane in context of java , c++ etc as its like using something that you do not even have.  
+
+Another, noteworthy thing is that if **not declared inside a function** the scope of a var is global. like the shown use first declare later can be used in scope of the braces. likewise for the var not declared in function scope is truly **global** and you can use first declare later anywhere in code.  
+
+**NOTE: This is one of reasons to avoid using of var keyword except if you have a specific usecase**
 - `let` - let works similar  to var and  an be declared like any other language and  can also be changed. but it has its differences at deeper level.       
-there are differences at deeper level we can cover taht later.  
+there are differences at deeper level we can cover that later.  
 e.g.
 ```js
 let v = "Hello world"  
 ```  
 
 - `const` - well const is different the const here means constant meaning that variable declared here are  **constant** and cannot be changed even if they are re-declared it will show error.       
-Well what is interesting is that  if you declare a array with const you can mutate it but what you cannot do is you cannot re-assign it a new array.  
+Well what is interesting is that  if you declare a array with const you can mutate it but what you cannot do is you cannot re-assign it a new array.Meaning, what const `freezes` is the reference of the array or object but not the array or object itself.   
 e.g.
 ```js
 const v = "Hello world"  
-```     
+```    
+So,  
+this is possible.  
+```js
+const obj = {a:1};
+obj.a = 2; //allowed, because what we are mutating is the object and the binding obj still points to the same object
+``` 
+
+while,
+```js
+const obj = {a:1};
+obj = {};// Type error pops up at runtime.
+//This happens because we try to reassign the obj to a new object which is not possible as reference of object is frozen.
+```
 
 
 ## Block vs Function Scoped.  
@@ -196,7 +242,7 @@ console.log(x)
 let x= 3
 
 ```
-In above described situation niether const nor let can be used and above script will throw error because as stated `let` & `const` are block scoped meaining that they are accessible only within the block that they are defined.  
+In above described situation neither const nor let can be used and above script will throw error because as stated `let` & `const` are block scoped meaining that they are accessible only within the block that they are defined.  
 Also they cannot be accessed before they are declared meaning if you do some operation involving it and later declare it taht won't work.  
 
 
@@ -205,22 +251,12 @@ While `var` is function scoped meaning that it is accessible within the function
 So here the magic also happens because of something called `Hoisting.`  
   
 Well that is a topic to be studied in detail but to give a brief   
-basically when you declare something using var it gets hoisted meaning made availabe at the top of the function and thus is availabe throughout teh function and can be used. 
+basically when you declare something using var it gets hoisted meaning made availabe at the top of the function and thus is availabe throughout teh function and can be used.This is a topic that i think i have intuitively described in the `var` section above so please refer there. 
 
 So basically see below snippet.  
-![hoist behaviour](./Images/Hoisting%20behavior.png)
+![hoist behaviour](./Images/Hoisting%20behavior.jpg)
 
-so basically see below for the same code i made some changes and then i ran ;  
-For the 1st  cod ei declared console 1st and then declared var   
-in this case irrespective of where teh function is called the o/p was `undefined`  
-as js when it runs into a unintiated variable it assigns it as undefined then wheen it later reaches initialization it replaces the value.  
-so here console just looks up and takes the current val as itt is and tehe compiler doesn't reach the var initializaion.   
-  
-In second time the var is placed above console here the `undefined ` is replaced by 10 so o/p is 10.  
-  
-In third time i just didnt declare var so here error came.  
-
-In 1st and 3rd case both let & const would give reference error/
+so basically i did console.log twice in the code once before declaring it and once after. and as discussed in `var` subsection the 1st console gives `undefined` as o/p as hoisting is done for `v` and default value of a variable in js is `undefined` but after compiler reaches line 4 it finds the declaration and then it changes the value from `undefined to Hello world` so thus the second console.log prints `Hello world` once again this nature is called `Hoisting`
 
 `In summary just know that let & const are block scoped and var is function scoped`
   
