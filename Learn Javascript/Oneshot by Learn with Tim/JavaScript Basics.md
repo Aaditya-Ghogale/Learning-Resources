@@ -198,7 +198,8 @@ This code is insane in context of java , c++ etc as its like using something tha
 
 Another, noteworthy thing is that if **not declared inside a function** the scope of a var is global. like the shown use first declare later can be used in scope of the braces. likewise for the var not declared in function scope is truly **global** and you can use first declare later anywhere in code.  
 
-**NOTE: This is one of reasons to avoid using of var keyword except if you have a specific usecase**
+
+> **NOTE: This is one of reasons to avoid using of var keyword except if you have a specific usecase**
 - `let` - let works similar  to var and  an be declared like any other language and  can also be changed. but it has its differences at deeper level.       
 there are differences at deeper level we can cover that later.  
 e.g.
@@ -282,17 +283,105 @@ so basically i did console.log twice in the code once before declaring it and on
  - `-=` substract rhs from lhs & update lhs.  
  - `*=` multiply rhs & lhs & update lhs.  
  - `/=` divide lhs by rhs & update it.  
+
+ ### Operator precedence.
+
+In JS operator precedence is same as C, because it is based on C.  
+- 1. Scopes - what we call braces i.e.(  )
+- 2. Unary - like ++, --, !, typeof.
+- 3. Exponention - **.
+- 4. Multiplicative - like *, /, %.
+- 5. Additive - like +, -.
+- 6. Relational - like <, >, <=, >=.
+- 7. Equality- like ==, ===, !=, !==.
+- 8. Logical AND - &&.
+- 9. Logical OR - ||.
+- 10. Assignment - =,+=, -=, *=, /=, %=, **=.
+
+> Interesting experiment. 
+I thought that the expressions x/=2+2 & x=x/2+2 would give same result as both are similar. but when i ran console. both did not see. taking '=' as dividing line js internally differentiates LHS from RHS. So, (x/)=(2+2)  is considered in 1st case and which results to x= x/(2+2). whereas in 2nd case it is already cleared.
+
+```js
+let x=20
+x/=2+2
+let y=20 
+y=y/2+2
+console.log(x);
+console.log(y);
+/*prints 
+5
+12
+respectively*/
+```
    
 ### Type Coercion.  
-Well by type coercion what we really mean that whenever we do arithmetic operation b/w 2 incompatible types in js it just converts one to other.  
+
+Well by type coercion what we really mean that whenever we do arithmetic operation b/w 2 incompatible types in js it just converts one to other which is basically done via `implicit conversion`  
 I will attach only one snip for understanding other i will just write it out pls crosscheck if in doubt.  
   
-say what we adding are vars but to keep simple i will just write directly.  
+let's say, what we adding are 2 var's but to keep simple i will just write directly.  
 `2+4` will give `6`.  
 `7+"Eleven"` will give `7Eleven`   
 In above the 7 got converted to string.  
 `2 + True` & `2 + False` will result in `3` & `2` respectively as True & False are Boolean expressions & contain value 1 & 0 respectively .  
+And, `eleven'+ true` will result in `eleventrue` as here bool is also converted to string.
+
+But this idea where mostly all are converted to string holds true only when the operator in question is + i.e. concatenation. in other such as *, /, %, - it will try to convert to num for example
+```js
+let x='123'
+let y=2
+console.log(x-2)
+// results in 121
+```
+
+
+```js
+let x='hello'
+let y=2
+console.log(x-2)
+// results in NaN i.e. Not a Number
+//same result even if - is replaced by anything other than +
+```
+
+we also have some nuances here, 
+```js
+let x= "123"
+let y=3
+console.log(x+y)
+//would result in 1233 asd it just appends 3 after converting to string
+
+// to avoid this if you want to add then we have 2 options 
+//1st
+console.log(Number(x)+y)
+//this converts the x into a number
+let z="123px"
+//this also works as number converter but it parses the argument and returns the integer or NaN respectively.
+console.log(parseInt(z)+y)
+console.log(Number(z)+y)
+
+/*result after running:
+1233
+126
+126
+NaN
+
+=== Code Execution Successful ===
+*/
+
+// a thing to notice is that parseInt only works if the target is in a format IS.... not any other even SI... where S= string and I = Integer coz parseInt runs till it find 1st string and then stops
+let z1= "1op23"
+let z2= "op123"
+console.log(parseInt(z1)+y)
+console.log(parseInt(z2)+y)
+/*output is 
+4
+NaN
+*/
+
+// Similarly we have `parseFloat` that can grab Floating value.
+```
+
+Similarly we have `toString` that can convert other values to string and so on.  
 
 
 
-  
