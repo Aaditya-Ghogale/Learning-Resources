@@ -313,6 +313,20 @@ console.log(y);
 12
 respectively*/
 ```
+
+### Assignment, Equality & Relational Operator.
+we have, 
+- `>=` -It is the `Greator than or equal to` operator and it checks if LHS is Greator than or equal to RHS in which case it returns `True` else it retuens `False`.Rest working is same as `>`
+- <= - It is the `Less than or equal to operator` and it checks if LHS is Less than or equal to RHS in which case it returns `True` else it retuens`False`. Rest working is  same as `>`
+- `>` - It is the Greator than operator and it checks if LHS is Greator than RHS in which case it returns `True` else it retuens `False`.this also works weirdly than expected and like "==" and "!=" it checks only value so something like "3">2 returns `true`. so as said type coercion takes place here so to get the result you want make sure to change type before you do such operations and ensure type compatibility. A important note is that when type on both sides is string then what takes place instead of numeric comparison is lexicographic comparison. so while "3">2 may return `true` but, "10">"2" returns false.
+- < -It is the Less than operator and it checks if LHS is Less than RHS in which case it returns `True` else it retuens`False`. Rest working is  same as `>`
+- == - this is a `loose equality operator` it compares equality of value only meaning. for it true = 1 = '1' coz both given example  at end equate of 1 also important to remember is that for this `null = undefined` also equal are `[]=""` meaning a empty string is equal to a empty array. or even this `[1,2]="1,2"` is true.
+- === - unlike above this here is `strict equality` meaning it cvhecks both value and type
+- = - used to assign value to a variable or to be technical it connect the reference of a value to the reference of the variable. In Short, in JS, assignment binds a variable to a value
+- != - works same as `loose equality ` and is called `loose inequaity operator`
+- !== - works same as `strict equality ` and is called `strict inequaity operator`
+> Note: Unless necessary, always use the Strict Equality (===) and the Strict Inequality (!==) operator. use other only if you know your shit.
+
    
 ### Type Coercion.  
 
@@ -383,5 +397,69 @@ NaN
 
 Similarly we have `toString` that can convert other values to string and so on.  
 
+### Logical Operators.
+Here we have,
+- `&&` - `&& (Logical AND)` is a short-circuiting operator that evaluates the left-hand side (LHS) first. If the LHS is falsy, it immediately returns the LHS without evaluating the right-hand side (RHS). If the LHS is truthy, it evaluates and returns the RHS. Because of this behavior, && returns one of its operands rather than a boolean, and it relies on JavaScript’s truthy/falsy semantics. This is why it is commonly used in if conditions to ensure that multiple expressions are truthy before executing a block.
+Refer below to verify:
 
+```js
+let y= ("hi"&&false)
+console.log(y)
 
+let x= (false &&"hello")
+console.log(x)
+
+let d= (0 &&"hello")
+console.log(d)
+
+let z= (true&&true)
+console.log(z)
+
+let w= (true&&"This is Great")
+console.log(w)
+
+let a= ("hi"&&"red")
+console.log(a)
+
+let r =0
+if (2>1 && 3>=3){
+    r="rat"
+}else{
+    r="cat"
+}
+console.log(r)
+
+let s =0
+if (2>3 && 3>=4){
+    s="rat" 
+}else{
+    s="cat"
+}
+console.log(s)
+
+if (2>3 && "true"){
+    console.log("so i was wrong") 
+}else{
+    console.log("so i was right")
+}
+/*
+OUTPUT IS :
+false
+false
+0
+true
+This is Great
+red
+rat
+cat
+so i was right
+
+=== Code Execution Successful ===
+*/
+```
+- `||`- `|| (Logical OR)` is also a short-circuiting operator that evaluates the LHS first. If the LHS is truthy, it immediately returns the LHS and skips evaluating the RHS. If the LHS is falsy, it evaluates and returns the RHS. Like &&, the || operator returns one of its operands rather than a boolean, which makes it useful for providing fallback or default values based on truthiness
+
+- `!` - `! (Logical NOT) converts its operand to a boolean using JavaScript’s truthy and falsy rules and then negates it. It always returns a boolean value, making it useful for explicitly inverting conditions or for forcing boolean conversion when combined as !!value.
+
+> Note: so now i came to know that Java and C++ also short-circuit `&&`  but the `&&` operator is strictly of Boolean tyoe in Java and C++ meaning In Java: `&&` is defined only for boolean `&&` boolean. It always returns a boolean "hello" is a String, not a boolean. So the `compiler rejects it before execution`.So, in conclusion `boolean && boolean → boolean so 
+`
