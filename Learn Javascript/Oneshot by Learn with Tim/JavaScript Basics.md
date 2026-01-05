@@ -261,7 +261,7 @@ so basically i did console.log twice in the code once before declaring it and on
 
 `In summary just know that let & const are block scoped and var is function scoped`
   
-##  Arithmetic Operations & Type Coercions.  
+##   Operations & Type Coercions.  
  
 
  Well the Arithmetic Operations Here are similar to other programming languages i know,  
@@ -400,8 +400,9 @@ Similarly we have `toString` that can convert other values to string and so on.
 ### Logical Operators.
 Here we have,
 - `&&` - `&& (Logical AND)` is a short-circuiting operator that evaluates the left-hand side (LHS) first. If the LHS is falsy, it immediately returns the LHS without evaluating the right-hand side (RHS). If the LHS is truthy, it evaluates and returns the RHS. Because of this behavior, && returns one of its operands rather than a boolean, and it relies on JavaScript’s truthy/falsy semantics. This is why it is commonly used in if conditions to ensure that multiple expressions are truthy before executing a block.
-Refer below to verify:
+Refer below to verify:  
 
+`refer logical-ops.js to see the code run`
 ```js
 let y= ("hi"&&false)
 console.log(y)
@@ -461,5 +462,102 @@ so i was right
 
 - `!` - `! (Logical NOT) converts its operand to a boolean using JavaScript’s truthy and falsy rules and then negates it. It always returns a boolean value, making it useful for explicitly inverting conditions or for forcing boolean conversion when combined as !!value.
 
-> Note: so now i came to know that Java and C++ also short-circuit `&&`  but the `&&` operator is strictly of Boolean tyoe in Java and C++ meaning In Java: `&&` is defined only for boolean `&&` boolean. It always returns a boolean "hello" is a String, not a boolean. So the `compiler rejects it before execution`.So, in conclusion `boolean && boolean → boolean so 
-`
+> Note: so now i came to know that Java and C++ also short-circuit `&&`  but the `&&` operator is strictly of Boolean tyoe in Java and C++ meaning In Java: `&&` is defined only for boolean `&&` boolean. It always returns a boolean "hello" is a String, not a boolean. So the `compiler rejects it before execution`.
+
+## Flow Control Statements.
+### Conditionals
+
+We need to deal with conditions to deal with logical situations. like where we need to deal with situation based solutions.
+
+Here just like other languages we have:
+- if statement - here we have if and a condition. if the condition is satisfied then loc in the if block are executed else they are skipped.
+- if, else statements- just like if but along with that there is a else block that is executed if the if is not satisfied. this can act as a default alternative to if.
+- if, else-if, else statements- just like if and else but we have a extra else-if that allows an extra conditional alternative to if. Basically, it is a method to implement more than one if for a if-else blocks.
+- ternary operator- it is a one lined conditioned statement that helps us implement logic similar to if-else. like it consists of a staement followed by `?` and 2 statemnts seperated by `:`. so how this works is that if the statement before `?` is true then the statement preceeding `:` is executed else the statement after `:` is executed. Finally `?:` together are identified as ternary operators.
+
+``` js
+const prompt = require("prompt-sync")();
+
+if(true){
+    console.log("this is a if statement");
+}
+
+
+if(2>3){
+    console.log("this won't be logged because the condition is false");
+}
+else{
+    console.log("this is the else statement");
+}
+
+let age=prompt("Enter your age:");
+
+if(age>=18 && age<60){
+    console.log("You are an adult!!");
+}
+else if(age>=60){
+    console.log("You are a senior citizen!!");
+}
+else if(age<=0){
+    console.log("You aint born yet!!");
+}
+else if(age<=18 && age>0){
+    console.log("You are a minor!!");
+}
+
+let number=prompt("Enter a number:");
+
+number%2==0?console.log("you have entered a even number"):console.log("you have entered a odd number");
+/*
+PS D:\Learning Resources\Learn Javascript\Oneshot by Learn with Tim> node .\conditionals.js
+this is a if statement
+this is the else statement
+Enter your age:-2
+You aint born yet!!
+Enter a number:22
+you have entered a even number
+*/
+```
+### Switch statements.
+
+what would you do if you want to execute in a lot of different manners depending on a variable. Say, for example you want to make a menu that operates depending on the day of the month in such a case you would have to deal with atleast 28 and atmost 31 different criteria based executions which would translate to 31 if, else if blocks and a else block if you want to deal with situations when no choice is met.  
+
+So, here comes switch that takes a variable name as i/p and matches it to all cases and executes accordingly and executes a default block if no condition is met. Also each block is followed by a break statement that helps us exit the switch block as soon as the condition is met.
+```js
+const prompt=require("prompt-sync")()
+
+let day=prompt("enter a day and i will tell you the menu :").trim()
+
+switch(day.toLowerCase()){
+    case "monday":
+        console.log("Today is Monday and the menu is Pasta")
+        break;
+    case "tuesday":
+        console.log("Today is Tuesday and the menu is Tacos")
+        break;
+    case "wednesday":
+        console.log("Today is Wednesday and the menu is Burgers")
+        break;
+    case "thursday":
+        console.log("Today is Thursday and the menu is Sandwiches")
+        break;  
+    case "friday":
+        console.log("Today is Friday and the menu is Pizza")
+        break;
+    case "saturday":
+        console.log("Today is Saturday and the menu is BBQ")
+        break;
+    case "sunday":
+        console.log("Today is Sunday and the menu is Roasted Chicken")
+        break;
+    default:
+        console.log("Invalid day entered")
+}
+
+/*
+PS D:\Learning Resources\Learn Javascript\Oneshot by Learn with Tim> node switch.js
+enter a day and i will tell you the menu :  MoNdAY
+Today is Monday and the menu is Pasta
+*/
+```
+
