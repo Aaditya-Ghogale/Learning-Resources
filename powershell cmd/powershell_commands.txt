@@ -1,3 +1,4 @@
+
 # Auto Commit Each File Individually (PowerShell)
 
 By default, `git commit` groups all modified files into a single commit.  
