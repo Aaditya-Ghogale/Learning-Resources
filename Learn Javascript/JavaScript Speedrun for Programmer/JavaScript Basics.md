@@ -560,6 +560,11 @@ enter a day and i will tell you the menu :  MoNdAY
 Today is Monday and the menu is Pasta
 */
 ```
+
+## Arrays.
+
 ## for loop.
 
 for loop is a looping method in JS. for loop is a loop that gate checks its block meaning at the entry of block we have the for parameter braces where the initialization, condition checker & increment/ decrement of intiated variable takes place.
+
+Now for loop just works same like other languages.  
