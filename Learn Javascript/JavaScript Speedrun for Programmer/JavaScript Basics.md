@@ -562,6 +562,8 @@ Today is Monday and the menu is Pasta
 ```
 
 ## Arrays.
+Arrays are different in js.  
+In js arrays are much more flexible than in other languages.
 
 ## for loop.
 
