@@ -1,5 +1,5 @@
 var prompt=require("prompt-sync")();
-var fruits = new Array(4);
+ fruits = new Array(4);
 //this makes an array with 4 empty slots
 console.log(fruits); // Output: [ <4 empty items> ]
 
@@ -125,6 +125,7 @@ console.log(combined.join(" | "));
 console.log(combined.join(" - "));
 console.log(combined.join(" ~ "));
 console.log(combined.join(" and "));
+console.log(combined.join(" "))
 
 console.log("Note: join() does not change the original array it just returns a string with given separator");
 
@@ -140,6 +141,7 @@ console.log("if we say that slice copies aportion of array and returns without m
 console.log("Where, it cuts a portiion from original and reurns the cut portion and modifies original array by removing that portion from it.");
 console.log("Also, what is diffrerent is that while slice take (start, end) what splice takes is splice(start, offset)");
 console.log("where offset is number of elements to be cut starting from start index.");
+
 let splicearr=slicearr.slice(); // making a copy of original array to show difference between slice and splice.
 console.log("Original Array for splice():",splicearr);
 let splicedportion = splicearr.splice(2,4);
