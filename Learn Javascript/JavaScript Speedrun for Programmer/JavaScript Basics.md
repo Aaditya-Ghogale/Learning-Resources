@@ -563,7 +563,107 @@ Today is Monday and the menu is Pasta
 
 ## Arrays.
 Arrays are different in js.  
-In js arrays are much more flexible than in other languages.
+In js arrays are much more flexible than in other languages.  
+Here, arrays are mutable except when declared using `const`  
+In case of arrays when const is used what is frozen is the reference to the array not the contents. so you can modify the contents of the array but you `cannot reassign the array`.
+```js
+let a=[1,2,3,4,5,6,7,8];
+console.log(a);
+a=[1,2,"hi",{name:"aadi",age:"100000"}];
+console.log(a);
+
+/*
+Result:
+PS D:\Learning Resources\Learn Javascript\JavaScript Speedrun for Programmer> node .\test.js
+[
+  1, 2, 3, 4,
+  5, 6, 7, 8
+]
+D:\Learning Resources\Learn Javascript\JavaScript Speedrun for Programmer\test.js:17
+a=[1,2,"hi",{name:"aadi",age:1000000}];
+ ^
+
+TypeError: Assignment to constant variable. 
+Node.js v23.10.0
+*/
+```
+
+As you can see this results in a process where you cannot use process that reassign an array. On arrays themselves for example if you declare a array then you try to reassign values using splice on other array or evwn itself it will not work just like.
+
+```cmd
+PS D:\Learning Resources\Learn Javascript\JavaScript Speedrun for Programmer> node .\test.js
+[
+  1, 2, 3, 4,
+  5, 6, 7, 8
+]
+D:\Learning Resources\Learn Javascript\JavaScript Speedrun for Programmer\test.js:17
+a=a.slice(2,3);
+ ^
+
+TypeError: Assignment to constant variable.
+
+PS D:\Learning Resources\Learn Javascript\JavaScript Speedrun for Programmer> node .\test.js
+[
+  1, 2, 3, 4,
+  5, 6, 7, 8
+]
+D:\Learning Resources\Learn Javascript\JavaScript Speedrun for Programmer\test.js:17
+a=b.splice(2,4);
+ ^
+
+TypeError: Assignment to constant variable.
+```
+
+But in other cases where array is declared using `let or var` arrays can be reassigned.
+
+But while arrays declared using const are not reassignable their contents can be modified. like doing this `a[10]=10;` to a  already declared array of size 4 is permissble showing that both size and contents of array are mutable.  
+  
+Another way to declare array is the old fashioned way of using `new` keyword.  
+```js
+const arr=new Array(10);
+```
+Now, we have cases when we want some or all indexes of an array filled with some values by default. For such cases we have `fill() function` if you do `a.fill("hi");` for a array `a` then it fills all indexes of the array with `"hi"`. now if you want to fill only certain specific values of the array with `"hi"` then you have to pass 3 things to the function namely value, start index and offset where offset means the number of indexes to be filled for example for a empty array of size `8` we can use a.fill("hi",3,4). which will fill 4 indexes starting from 3 which would result in `[<2 empty items>,"hi","hi","hi","hi",<2 empty items>]`.      
+
+
+We also have cases where we want to fill the values from an string into a array. Here, we have `from() method`  that takes character one-by-one from the string and put them into index one by one in serialized manner. Below is example:  
+```js
+let a ="Hello Sam!!"
+let b=Array.from(a);
+console.log(a,b)
+/*
+Hello Sam!! 
+["H","e","l","l","o"," ","S","a","m","!","!"]
+*/
+``` 
+
+We also have some methods for array:  
+- **push(value)** - This function can push a value in array. If you are familiar with concept of stack you know what push do right? well it inserts/appends the value to last index. `e.g. a=[1,2,3,4,5]; a.push("hi"); -----> [1,2,3,4,5,"hi"];`
+
+- **pop( )** - This just removes last index value from array and retuens it. `e.g. for previous example a.pop() would return "hi" also if we console.log(a) after pop it would result in [1,2,3,4,5]`.  
+
+- **shift( )** - Like pop this concept comes from queue where FIFO concept is held so this removes index just from the start index. `e.g. again referring to example from push(), a.shift() would result in ===> [2,3,4,5,"hi"]`  
+
+- **unshift(value)** - this is like opposite of push where push adds value from end while unshift adds value from start index.  `e.g. again referring to example from push(), a.unshift("hi") would result in ===> ["hi",1,2,3,4,5,"hi"]`.  
+
+- **indexOf(value)** - many a times we have to find index of a certain value in a array here indexOf() comes into play. It takes the value passed as reference and starts matching them to values at indexes starting from `left moving to right`. and returns index if match is found. what is interesting is that even if the value resides in multiple indexes in a array, Since it is index by index matching from `left --> right` only the 1st occurence of the value is considered. `eg taking example from unshift(value) as reference if we run a.indexOF("hi") we will get '0' as output`  
+
+- **lastIndexOf(value)** - as name suggests it does same job as indexOf(value) but it finds last index of the value and returns.`eg taking example from unshift(value) as reference if we run a.indexOF("hi") we will get '6' as output`  
+
+- **includes(value)** - it works exactly like indexOf() and lastIndexOf() but what it is meant to do is `only check` if value `exists` in `array`. So, while both of above return either index value of `-1` as result. what includes(value) returns is either `true` or `false`.`eg taking example from unshift(value) as reference if we run a.includes("hi") we will get 'true' as output`   
+
+- **arr1.concat(arr2)** -  we may have scenarios where we  to merge 2 arrays so here we have concat() method that can join 2 arrays. It takes 2 arrays as i/p 1st array precedes it by a `.` while 2nd is passed to it inside its scope `(array2)`. when final array is made the elements of 1st array precede elements of 2nd array in terms of indexes. `e.g. a=[1,2]; b=[3,4] then a.concat(b)--> [1,2,3,4].` `Note: it also works on string.` 
+  
+-  **arr.join(value)** - we hav times when we want to have elements of array but we can't just cram them we need to have a seperater to serve as a distinguisher that seperates the values. here join(value) comes in it takes each element of array and appends them into a string with the `value` that was passed as parameter serving as seperator. `e.g. for a=[1,2,3]; a.join(" ") --> 1 2 3, whereas a.("~") would result in 1~2~3`.    
+
+- **arr.slice(start index, end index)** - slice is a method used in situations where we want to have `a section of a array without affecting the original array` slice takes start and end index and copies them and values between them from the array that precedes it by `.` and returns these values as result. `e.g. taking the example from unshift() as reference if we run a.slice(2,4) we will get [2,3] as output.` ` Now you might expect 3 values but we get 2 why?> because just like fill(value,start,end) slice also includes start index and excludes end index meaning it might look like ` `start<=i<end`  
+
+- **arr.splice(start index, offset)** - slice is a sligtly different version of slice. slice takes start index and offset and it then takes start index number as starting point and `cuts` offset number of values from the array and returns them. And, yes i said `cut` instead of `copy` so it literally removes them from array and returns them, therefore unlike slice splice does affect the original array.`e.g. taking the example from unshift() as reference if we run a.splice(2,4) we will get [2,3,4,5,"hi"] as output. and after that what will remain in a is ["hi", 1]` 
+
+> Note : this is true for indexOf(value) & lastIndexOf(value). if no match for the value if found in the array we get `-1` as output because `-1 is default method in Js to represent "Not Found".`   
+
+> Note: join() and slice() don't affect the original array.
+   
+
 
 ## for loop.
 
