@@ -662,7 +662,27 @@ We also have some methods for array:
 > Note : this is true for indexOf(value) & lastIndexOf(value). if no match for the value if found in the array we get `-1` as output because `-1 is default method in Js to represent "Not Found".`   
 
 > Note: join() and slice() don't affect the original array.
-   
+
+## Array Destructuring  & Spread operator.
+
+We often face scenarios where we have to face where we have to assign values to variablee from an array here we would traditionally do something like:  
+```js
+let arr=[1,2,3,4,5,6];
+let a=arr[0];
+let b=[1]; 
+let c=arr.slice(2,5); 
+```
+now this may make loc significantly larger for some cases.  
+  
+Thus, for we have the concept of **Array Destructuring** and here we try to perform assignment using pattern matching
+
+e.g. if you do this:  
+```js
+let a=[1,2,3,4,5];
+let [b,c,v]=a;
+console.log(b,c,v);
+// 1 2 3
+```
 
 
 ## for loop.
