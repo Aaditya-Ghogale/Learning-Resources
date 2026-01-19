@@ -1,2 +1,4 @@
-let a=[1,2,3,4,5,6,7];
-console.log(a.splice(2,2));
+let a={name:"John",age:25,city:"London"};
+for(let [a1,a2] of a.entries()){
+    console.log(a1,a2);
+}
