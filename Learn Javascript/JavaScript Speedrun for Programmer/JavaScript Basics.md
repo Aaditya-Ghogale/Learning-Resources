@@ -684,9 +684,194 @@ console.log(b,c,v);
 // 1 2 3
 ```
 
+Here, what the array destructuring does is that it matches the pattern on both sides and then assigns appropiately. like above b,c,v correspond to index {0,1,2} so they are assigned the values at that index while keeping the other indexes untouched.Other indexes are untouched.  
+  
+But what if we want to assign some indexes that are non-continous well:  
+```js
+let a=[1,2,3,4,5];
+let [b, ,c, ,f]=a;
+console.log(b,c,f);
+// 1 3 5
+```
 
-## for loop.
+here we can also assign the some indexes to variable and rest of array to another array:  
+```js
+let a=[1,2,3,4,5];
+let [b, , , ...y]=a;
+console.log(b,y);
+// 1 [ 4, 5 ]
+```
+
+Destructuring also works on objects :
+```js
+let a1={a:1,b:2};
+let {a,b}=a1;
+let {a2,b2}=a1;
+console.log(a,b,a2,b2);
+// 1 2 undefined undefined
+//why does it work this way??
+//well,  what above line 2 does it it tries to find corresponding object and value in a1 and as it finds value it copies and assigns to a and b while a2 & b3 cannot find the corresponding value in the object a1
+```
+### Spread operator.
+
+Now we know that spread operator "expands" elements of an iterable like arrays, objects, sets, strings, etc. into individual elements.   
+
+till now we have seen spread operator and seen its use in conjunction with destructuring, as we see it can be used to assign partial array to another variable.  
+  
+It has another use as we know that we need to frequently copy array while coding.  
+We, usually use assignment operator but it makes problems in js:  
+```js
+let a1=[1,2,3,4,5];
+let y=a1;
+y.push(6);
+console.log(a1); 
+console.log(y);
+/*
+[ 1, 2, 3, 4, 5, 6 ]
+[ 1, 2, 3, 4, 5, 6 ]
+ */
+```
+Why? Well what assignment does is point to reference. so when we change y, then a1 is also changed.  
+
+Here, we can do this:  
+```js
+let a=[1,2,3];
+let =[...a];
+a1.push("Hello");
+console.log(a,a1);
+//[ 1, 2, 3 ] [ 1, 2, 3, 'Hello' ]
+```
+You can also use it during assignment like,  
+```js
+let a=[1,2,3];
+let b=[1,2,4,...a];
+console.log(b);
+//[ 1, 2, 4, 1, 2, 3 ]
+//this essentially concatenates 1 2 4 and array a
+```
+
+we can also assign values of array to object.  
+```js
+let a=[1,2,34,5,5]
+let obj={...a};
+console.log(obj);
+//{ '0': 1, '1': 2, '2': 34, '3': 5, '4': 5 }
+//It uses index as object and index values as value.
+```  
+
+you can also use it in instances where we need to pass values from and array to a function like,   
+```js
+let a=[1,2,34,5,5]
+
+function add(x,y,z,a1,d){
+    return x+y+z+a1+d
+}
+
+console.log(add(...a));
+// 47
+```
+
+We also have a operation where we can change all values of index except one.  
+see below,  
+```js  
+let a ={name:"Alice", age:30, city:"New York"};
+let b={...a,name:"Bob"};
+console.log(a);
+console.log(b);
+// { name: 'Alice', age: 30, city: 'New York' }
+// { name: 'Bob', age: 30, city: 'New York' } 
+```
+This will be used often in React/NextJS when you need to change a specfic value in a object.  
+
+In above also placement decides priority like if you didi this instead:  
+```js
+let b={name:"Bob",...a};
+```
+then the value printed would be the original object a as in 1st case b the content of a via using ..a and then other values come that override the prior values while in 2nd case it doesnt.  
+
+> Note: Refer array-destructuring-and-spread.js for reference.
+
+## Looping
+Looping is a important part of logic building in any language, it helps us iterate through a bunch of values or a set number of times depending on certain condition. We basically have 3 type of loops: for, while, do-while. others are mostly subtypes of these 3.  
+
+### While loop.  
+while loop in js are like in any other language with a condition check at start of scope and then entry in scope till the condition is satisfied.  
+
+```js
+//Syntax
+while(conditions){
+    //Statements
+}
+```
+
+Examples:  
+```js
+while(true){
+    consoele.log("hi")
+}
+//prints while loop till it is stopped
+```
+the working of while is same as in any other language. Just we have one additional concept of 
+"naked loop" where basically if you have only one line in the scope of loop such as while and for you can just skip the braces:  
+```js
+while(true)  console.log("hello");
+//runs infite times until stopped using ctrl+c.
+```
+
+### do while loop.
+it is a different type of loop that gate keeps at the exit meaning that it does not check any condition at the entry of scope but at exit. what this does that it gives do-while a superpower of being able to run at least once in any case. It is highly useful in cases where you want to run at least once even if the condition is false.
+
+> think of sites that let you use them and check if you have  membership at the end.    
+```js
+//Syntax
+let a=1;
+do{
+    console.log("hi")
+}while(a>3)
+//still prints "hi" once.
+```
+
+### for loop.
 
 for loop is a looping method in JS. for loop is a loop that gate checks its block meaning at the entry of block we have the for parameter braces where the initialization, condition checker & increment/ decrement of intiated variable takes place.
 
 Now for loop just works same like other languages.  
+
+
+For loops are incredibly useful in iterating through some kind of structure.  
+```js
+let a1=[1,2,3,45,6,6];
+for(let a=0;a<a1.length;a++){
+    console.log(a1[a]);
+}
+//prints all values one by one.
+```
+We also have a easier method to do this,  
+```js
+let a=[1,2,3,45,67,8];
+for (let a1 of a){
+    console.log(a1);
+}
+//this is a much simpler method with lot lesser overhead made becoz this is a common usecase of for.
+//what is happening here is that for iterates the entire array length and in each iteration a1 gets the value at that index.  
+//this works on any iterable structure.
+```
+We also have a method to get both index and values in here with conjunction of `array destructuring.`
+
+```js
+let a=[2,23,4,5,6,7,7];
+for(let [a1,a2] of a.entries()){
+    console.log(a1,a2);
+}
+/* Output:
+0 2
+1 23
+2 4
+3 5
+4 6
+5 7
+6 7
+*/
+```
+> Note: .entries( ) works only on array.
+
