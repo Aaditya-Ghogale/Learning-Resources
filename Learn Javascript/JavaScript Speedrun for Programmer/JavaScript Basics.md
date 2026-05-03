@@ -791,7 +791,7 @@ then the value printed would be the original object a as in 1st case b the conte
 
 > Note: Refer array-destructuring-and-spread.js for reference.
 
-## Looping
+## Looping.
 Looping is a important part of logic building in any language, it helps us iterate through a bunch of values or a set number of times depending on certain condition. We basically have 3 type of loops: for, while, do-while. others are mostly subtypes of these 3.  
 
 ### While loop.  
@@ -874,4 +874,21 @@ for(let [a1,a2] of a.entries()){
 */
 ```
 > Note: .entries( ) works only on array.
+
+
+## Objects.  
+If you have seen a JSON Before,  
+```JSON
+{
+    "name": "Aaditya",
+    "age": "22",
+    "hobbies": ["Reading long form Literature(novels)","Gaming","Listening Music"],
+    "city": "Mumbai"
+}
+```
+
+Yup, That's it.  
+
+Then you are pretty much familiar with Objects.  
+Because `JSON` stands for `Javascript Standard Object Notation.`  
 
